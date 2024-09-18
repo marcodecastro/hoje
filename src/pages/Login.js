@@ -39,7 +39,7 @@ const Login = () => {
       console.log('Login bem-sucedido:', data);
 
       // Redireciona para a página inicial após login bem-sucedido
-      navigate('/home'); // Substitua '/home' pelo caminho da sua tela inicial
+      navigate('/inicial'); // Substitua '/home' pelo caminho da sua tela inicial
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       setErrorMessage(error.message); // Define a mensagem de erro para exibir no frontend
