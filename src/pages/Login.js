@@ -19,6 +19,7 @@ const Login = () => {
     try {
       // Realiza a requisição para o backend
       const response = await fetch('https://server-nv02.onrender.com/api/auth/login', {
+      
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
