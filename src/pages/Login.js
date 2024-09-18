@@ -2,68 +2,84 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-
 const Login = () => {
-  const [cim , setCim] = useState('');
-  const [email , setEmail] = useState('');
-  const [senha , setSenha] = useState('');
-  const [formData, setFormData] = useState('');
+  // Estados para armazenar os valores dos campos de entrada e mensagens de erro
+  const [cim, setCim] = useState('');
+  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate();
 
+  // Função para lidar com o envio do formulário
+  const onSubmit = async (event) => {
+    event.preventDefault(); // Evita o comportamento padrão de recarregar a página
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
     try {
+      // Realiza a requisição para o backend
       const response = await fetch('https://server-nv02.onrender.com/api/auth/login', {
         method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  credentials: 'include', // Inclua isso se estiver usando cookies de autenticação.
-  body: JSON.stringify({ cim, senha, email }),
-})
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error('Erro ao fazer login');
-    }
-    return response.json();
-  })
-  .then((data) => {
-    console.log('Login bem-sucedido:', data);
-  })
-  .catch((error) => {
-    console.error('Erro ao fazer login:', error);
-  });
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        credentials: 'include', // Permite o envio de cookies e credenciais
+        body: JSON.stringify({ cim, senha, email }), // Converte os dados para JSON
+      });
 
-  if (response.ok) {
-    navigate('/inicial'); // Redireciona para a página inicial
-  }
+      // Verifica se a resposta não foi bem-sucedida
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao fazer login');
+      }
+
+      // Processa os dados da resposta
+      const data = await response.json();
+      console.log('Login bem-sucedido:', data);
+      // Você pode adicionar a lógica de redirecionamento ou manipulação do estado aqui
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro ao fazer login. Verifique os dados e tente novamente.');
+      setErrorMessage(error.message); // Define a mensagem de erro para exibir no frontend
     }
   };
 
-
-
   return (
-    <div className="container">
+    <div className="login-container">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="cim" value={formData.cim} onChange={handleChange} placeholder="CIM" required />
-        <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-        <input type="password" name="senha" value={formData.senha} onChange={handleChange} placeholder="Senha" required />
+      <form onSubmit={onSubmit}>
+        <div className="form-group">
+          <label htmlFor="cim">CIM:</label>
+          <input
+            type="text"
+            id="cim"
+            value={cim}
+            onChange={(e) => setCim(e.target.value)}
+            placeholder="Digite seu CIM"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Digite seu Email"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="senha">Senha:</label>
+          <input
+            type="password"
+            id="senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            placeholder="Digite sua Senha"
+            required
+          />
+        </div>
         <button type="submit">Entrar</button>
-        {errorMessage && <div className="error">{errorMessage}</div>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </div>
   );
