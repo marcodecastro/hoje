@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Importa o hook useNavigate para redirecionamento
 import '../App.css';
 
 const Login = () => {
@@ -8,6 +8,9 @@ const Login = () => {
   const [senha, setSenha] = useState('');
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Hook de navegação para redirecionar após o login
+  const navigate = useNavigate();
 
   // Função para lidar com o envio do formulário
   const onSubmit = async (event) => {
@@ -34,7 +37,9 @@ const Login = () => {
       // Processa os dados da resposta
       const data = await response.json();
       console.log('Login bem-sucedido:', data);
-      // Você pode adicionar a lógica de redirecionamento ou manipulação do estado aqui
+
+      // Redireciona para a página inicial após login bem-sucedido
+      navigate('/home'); // Substitua '/home' pelo caminho da sua tela inicial
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       setErrorMessage(error.message); // Define a mensagem de erro para exibir no frontend
@@ -86,3 +91,4 @@ const Login = () => {
 };
 
 export default Login;
+
