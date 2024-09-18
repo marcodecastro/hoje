@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
+
 const Login = () => {
-  const [formData, setFormData] = useState({
-    cim: '',
-    email: '',
-    senha: '',
-  });
+  const [cim , setCim] = useState('');
+  const [email , setEmail] = useState('');
+  const [senha , setSenha] = useState('');
+  const [formData, setFormData] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
