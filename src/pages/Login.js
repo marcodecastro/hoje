@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,8 @@ const Login = () => {
       const response = await fetch('https://server-nv02.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        credentials: 'include', // Adicione esta linha se estiver lidando com cookies
+        body: JSON.stringify({ cim, senha, email }),
       });
 
       const result = await response.json();
