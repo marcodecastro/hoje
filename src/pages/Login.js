@@ -25,25 +25,35 @@ const Login = () => {
     try {
       const response = await fetch('https://server-nv02.onrender.com/api/auth/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', // Adicione esta linha se estiver lidando com cookies
-        body: JSON.stringify({ cim, senha, email }),
-      });
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  credentials: 'include', // Inclua isso se estiver usando cookies de autenticação.
+  body: JSON.stringify({ cim, senha, email }),
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Erro ao fazer login');
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log('Login bem-sucedido:', data);
+  })
+  .catch((error) => {
+    console.error('Erro ao fazer login:', error);
+  });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', result.token);
-        alert('Login realizado com sucesso!');
-        navigate('/inicial'); // Redireciona para a página inicial ou dashboard
-      } else {
-        setErrorMessage(result.error || 'Erro desconhecido');
-      }
+  if (response.ok) {
+    navigate('/inicial'); // Redireciona para a página inicial
+  }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro interno no servidor.');
+      setErrorMessage('Erro ao fazer login. Verifique os dados e tente novamente.');
     }
   };
+
+
 
   return (
     <div className="container">
