@@ -15,7 +15,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  /*height: 100vh;*/
   justify-content: space-around;
   display: flex;
   justify-content: center;
@@ -35,6 +35,11 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .card {
@@ -80,20 +85,22 @@ h2, p {
 }
 
 .btn {
-  width: 300px;
+  width: 200px;
   height: 60px;
   border: none;
   outline: none;
+  font-size: 1em;
   color: #fff;
   background: #084887;
   cursor: pointer;
   position: relative;
   z-index: 0;
   border-radius: 10px;
+  flex-direction: row;
 }
 
 .btn:hover {
-  width: 300px;
+  width: 250px;
   height: 50px;
   border: none;
   outline: none;
