@@ -5,6 +5,9 @@ import Login from './pages/Login';
 import Home from './pages/Home'; // Supondo que você tenha uma página de Dashboard
 import Inicial from './pages/Inicial';
 import Membro from './pages/Membro';
+import Esposa from './pages/Esposa';
+import Filhos from './pages/Filhos';
+import Casamento from './pages/Casamento';
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
         <Route path="/inicial" element={<Inicial />} />
         {/* Adicione outras rotas conforme necessário */}
         <Route path="/membro" element={<Membro />} />
+        <Route path="/esposa" element={<Esposa />} />
+        <Route path="/filhos" element={<Filhos />} />
+        <Route path="/casamento" element={<Casamento />} />
       </Routes>
     </Router>
   );
