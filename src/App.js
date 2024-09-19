@@ -8,6 +8,7 @@ import Membro from './pages/Membro';
 import Esposa from './pages/Esposa';
 import Filhos from './pages/Filhos';
 import Casamento from './pages/Casamento';
+import Comemoracoes from './pages/Comemoracoes';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/esposa" element={<Esposa />} />
         <Route path="/filhos" element={<Filhos />} />
         <Route path="/casamento" element={<Casamento />} />
+        <Route path="comemoracoes" element={<Comemoracoes />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, CircularProgress, Card, CardContent, List } from '@mui/material';
-import withAdminProtection from '../withAdminProtection';
+//import withAdminProtection from '../withAdminProtection';
 import '../styles/Comemoracoes.css';
 
 const Comemoracoes = () => {
@@ -17,7 +17,7 @@ const Comemoracoes = () => {
     useEffect(() => {
         const fetchComemoracoesHoje = async () => {
             try {
-                const response = await fetch('https://backend-v6ye.onrender.com:5000/api/comemoracoes/comemoracoes');
+                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes/comemoracoes');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -33,7 +33,7 @@ const Comemoracoes = () => {
 
         const fetchComemoracoesSemana = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/comemoracoes-semana/comemoracoes-semana');
+                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-semana/comemoracoes-semana');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -48,9 +48,9 @@ const Comemoracoes = () => {
             }
         };
 
-        const fetchComemoracoesBrasil = async () => {
+        const fetchComemoracoesBrasil = async () => { 
             try {
-                const response = await fetch('http://localhost:5000/api/comemoracoes-brasil/comemoracoes-brasil');
+                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-brasil/comemoracoes-brasil');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -126,7 +126,7 @@ const Comemoracoes = () => {
     );
 };
 
-export default withAdminProtection(Comemoracoes); 
+export default Comemoracoes; 
 
 
 
