@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import membro from '../images/membro.png';
 import casamento from '../images/casamento.ico';
 import filhos from '../images/filhos.ico';
@@ -18,8 +18,12 @@ import '../styles/Inicial.css';
 import comemoracoes from '../images/comemoracoes.png';
 
 
+
+
 function Inicial() {
   console.log('Renderizando página inicial');
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -32,7 +36,7 @@ function Inicial() {
      <img 
         src={comemoracoes} 
         alt="Comemoracoes" 
-        onClick={() => Link ('/comemoracoes')} 
+        onClick={() => navigate('/comemoracoes')}
         style={{ cursor: 'pointer', position: 'absolute', top: '20px', right: '20px', width: '90px', height: '60px' }}
       />
       </div>
