@@ -338,7 +338,7 @@ export default Simbolicos; */
 
 
 import React, { useState, useEffect } from 'react';
-import { fetchWithToken } from '../fetchUtils';
+//import { fetchWithToken } from '../fetchUtils';
 import '../styles/common-form.css'; 
 
 const Simbolicos = ({ simbolicosId }) => {
@@ -388,7 +388,7 @@ const Simbolicos = ({ simbolicosId }) => {
 
       console.log('Payload enviado:', JSON.stringify(payload));
 
-      const response = await fetchWithToken('https://server-nv02.onrender.com/api/simbolicos', {
+      const response = await fetch('https://server-nv02.onrender.com/api/simbolicos', {
         method: simbolicosId ? 'PUT' : 'POST', // Utiliza PUT para atualização, se o ID existir
         body: JSON.stringify(payload)
       });

@@ -17,7 +17,8 @@ const Esposa = ({ esposaId }) => {
   useEffect(() => {
     const fetchEsposaData = async () => {
       try {
-        const response = await fetchWithToken(`https://server-nv02.onrender.com/api/esposa/${esposaId}`);
+        //const response = await fetchWithToken(`https://server-nv02.onrender.com/api/esposa/${esposaId}`);
+        const response = await fetch(`https://server-nv02.onrender.com/api/esposa/${esposaId}`);
         const data = await response.json();
         setSpouseName(data.nome);
         setSpouseBirthDate(moment(data.data_nascimento).format('YYYY-MM-DD'));

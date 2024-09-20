@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchWithToken } from '../fetchUtils'; // Importe a função corretamente
+//import { fetchWithToken } from '../fetchUtils'; // Importe a função corretamente
 import '../styles/common-form.css'; // Certifique-se de que o arquivo CSS está corretamente importado
 
 const Instalacao = () => {
@@ -45,7 +45,8 @@ const Instalacao = () => {
             };
         });
 
-        const response = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/instalacao', {
+        //const response = await fetchWithToken('https://server-nv02.onrender.com/api/instalacao', {
+        const response = await fetch('https://server-nv02.onrender.com/api/instalacao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

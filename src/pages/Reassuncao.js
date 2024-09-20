@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
+//import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
 import '../styles/common-form.css'; 
 
 const Reassuncao = () => {
@@ -45,7 +45,8 @@ const Reassuncao = () => {
             };
         });
 
-        const response = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/reassuncao', {
+        //const response = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/reassuncao', {
+        const response = await fetch('https://backend-v6ye.onrender.com:5000/api/reassuncao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

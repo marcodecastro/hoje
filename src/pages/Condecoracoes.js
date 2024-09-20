@@ -42,7 +42,7 @@ const Condecoracoes = () => {
         };
       });
 
-      const response = await fetch('https://backend-v6ye.onrender.com:5000/api/condecoracoes', {
+      const response = await fetch('https://server-nv02.onrender.com/api/condecoracoes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

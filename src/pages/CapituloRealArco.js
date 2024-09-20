@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
+//import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
 import '../styles/common-form.css'; 
 import { useNavigate } from 'react-router-dom';
 import voltar from '../images/voltar.png'; 
@@ -47,7 +47,8 @@ const CapituloRealArco = () => {
             };
         });
 
-        const response = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/capitulorealarco', {
+        //const response = await fetchWithToken('https://server-nv02.onrender.com/api/capitulorealarco', {
+        const response = await fetch('https://server-nv02.onrender.com/api/capitulorealarco', {
             method: 'POST',
             body: JSON.stringify({ cim: memberId, graus_capitulorealarco: formattedDegrees })
         });

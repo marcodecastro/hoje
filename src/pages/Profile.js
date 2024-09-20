@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { fetchWithToken } from '../fetchUtils';
+//import { fetchWithToken } from '../fetchUtils';
 import '../styles/Profile.css';
 
 const Profile = () => {
@@ -14,8 +14,8 @@ const Profile = () => {
         const fetchProfileData = async () => {
             try {
                 // Fetching profile data and events data
-                const profileResponse = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/profile');
-                const eventsResponse = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/events');
+                const profileResponse = await fetch('https://server-nv02.onrender.com/api/profile');
+                const eventsResponse = await fetch('https://server-nv02.onrender.com/api/events');
     
                 // Checking and handling profile data response
                 if (profileResponse && profileResponse.member && profileResponse.comemoracoes) {

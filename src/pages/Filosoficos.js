@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/common-form.css';
-import { fetchWithToken } from '../fetchUtils'; 
+//import { fetchWithToken } from '../fetchUtils'; 
 
 const Filosoficos = ({ filosoficosId }) => {
   const [memberId, setMemberId] = useState('');
@@ -44,7 +44,7 @@ const Filosoficos = ({ filosoficosId }) => {
         };
       });
 
-      const response = await fetchWithToken('https://server-nv02.onrender.com/api/filosoficos', {
+      const response = await fetch('https://server-nv02.onrender.com/api/filosoficos', {
         method: 'POST',
         body: JSON.stringify({ cim: memberId, graus_filosoficos: formattedDegrees }),
         headers: { 'Content-Type': 'application/json' } // Certifique-se de que o Content-Type seja especificado.

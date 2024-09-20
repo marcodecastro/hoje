@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Para navegação
-import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
+//import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
 import voltar from '../images/voltar.png';
 import '../styles/common-form.css'; 
 
@@ -47,7 +47,8 @@ const Apostolado = () => {
         };
       });
   
-      const response = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/apostolado', {
+      //const response = await fetchWithToken('https://server-nv02.onrender.com/api/apostolado', {
+      const response = await fetch('https://server-nv02.onrender.com/api/apostolado', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

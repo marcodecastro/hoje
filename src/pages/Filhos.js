@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import { fetchWithToken } from '../fetchUtils';
+//import { fetchWithToken } from '../fetchUtils';
 import '../styles/common-form.css';
 import { useNavigate } from 'react-router-dom';
 import voltar from '../images/voltar.png';   
@@ -17,7 +17,7 @@ const Filho = ({ filhoId }) => {
   useEffect(() => {
     const fetchFilhoData = async () => {
       try {
-        const response = await fetchWithToken(`https://server-nv02.onrender.com/api/filhos/${filhoId}`);
+        const response = await fetch(`https://server-nv02.onrender.com/api/filhos/${filhoId}`);
         const data = await response.json();
         setFilhoName(data.nome);
         setFilhoBirthDate(moment(data.data_nascimento).format('YYYY-MM-DD'));
@@ -42,7 +42,7 @@ const Filho = ({ filhoId }) => {
     
     try {
       setLoading(true);
-      const response = await fetchWithToken('http://localhost:5000/api/filhos', {
+      const response = await fetch('https://server-nv02.onrender.com/api/filhos', {
         method: 'POST',
         body: JSON.stringify({ 
           nome: filhoName, 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
+//import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
 import '../styles/common-form.css'; 
 
 const Comanderia = () => {
@@ -45,7 +45,8 @@ const Comanderia = () => {
             };
         });
 
-        const response = await fetchWithToken('https://backend-v6ye.onrender.com:5000/api/comanderia', {
+        //const response = await fetchWithToken('https://server-nv02.onrender.com/api/comanderia', {
+        const response = await fetch('https://server-nv02.onrender.com/api/comanderia', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
