@@ -21,8 +21,8 @@ const Comemoracoes = () => {
     useEffect(() => {
         const fetchComemoracoesHoje = async () => {
             try {
-                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes');
-                //const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes/comemoracoes');
+                //const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes');
+                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes/comemoracoes');
                 //const response = await fetch('http://localhost:5000/api/comemoracoes/comemoracoes');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -39,8 +39,8 @@ const Comemoracoes = () => {
 
         const fetchComemoracoesSemana = async () => {
             try {
-                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-semana');
-                //const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-semana/comemoracoes-semana');
+                //const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-semana');
+                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-semana/comemoracoes-semana');
                 //const response = await fetch('http://localhost:5000/api/comemoracoes-semana/comemoracoes-semana');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -58,8 +58,8 @@ const Comemoracoes = () => {
 
         const fetchComemoracoesBrasil = async () => { 
             try {
-                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-brasil');
-                //const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-brasil/comemoracoes-brasil');
+                //const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-brasil');
+                const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-brasil/comemoracoes-brasil');
                 //const response = await fetch('http://localhost:5000/api/comemoracoes-brasil/comemoracoes-brasil');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
