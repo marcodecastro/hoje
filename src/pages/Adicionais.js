@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/common-form.css';
-import { fetchWithToken } from '../fetchUtils';
+//import { fetchWithToken } from '../fetchUtils';
 import voltar from '../images/voltar.png';   
 
 const Adicionais = () => {
@@ -48,7 +48,8 @@ const Adicionais = () => {
         };
       });
 
-      const response = await fetchWithToken('https://server-nv02.onrender.com/api/adicionais', {
+      //const response = await fetchWithToken('https://server-nv02.onrender.com/api/adicionais', {
+      const response = await fetch('https://server-nv02.onrender.com/api/adicionais', {
         method: 'POST',
         body: JSON.stringify({ cim: memberId, graus_adicionais: formattedDegrees }),
         headers: { 'Content-Type': 'application/json' }

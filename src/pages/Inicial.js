@@ -15,6 +15,8 @@ import capitulo from '../images/capitulo.png';
 import criptico from '../images/criptico.jpg';
 import comanderia from '../images/comanderia.png';
 import '../styles/Inicial.css';
+import comemoracoes from '../images/comemoracoes.png';
+
 
 function Inicial() {
   console.log('Renderizando página inicial');
@@ -23,6 +25,16 @@ function Inicial() {
     <div>
       <div className="pagina">
         <h1>Esta é a página de formulários.</h1>
+      </div>
+
+      <div>
+        {/* Ícone de voltar */}
+     <img 
+        src={comemoracoes} 
+        alt="Comemoracoes" 
+        onClick={() => Link ('/comemoracoes')} 
+        style={{ cursor: 'pointer', position: 'absolute', top: '20px', right: '20px', width: '90px', height: '60px' }}
+      />
       </div>
 
       <div className="container">

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 //import { fetchWithToken } from '../fetchUtils'; // Importe a função corretamente
 import '../styles/common-form.css'; // Certifique-se de que o arquivo CSS está corretamente importado
+import voltar from '../images/voltar.png';
+import { useNavigate } from 'react-router-dom';
 
 const Instalacao = () => {
   const [memberId, setMemberId] = useState('');
@@ -8,6 +10,7 @@ const Instalacao = () => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleTituloChange = (index, key, value) => {
     const newTitulos = [...instalacaoTitulos];
@@ -94,6 +97,15 @@ const Instalacao = () => {
 
   return (
     <div className="common-form">
+
+      {/* Ícone de voltar */}
+     <img 
+        src={voltar} 
+        alt="Voltar" 
+        onClick={() => navigate('/inicial')} // Redireciona para a página inicial
+        style={{ cursor: 'pointer', position: 'absolute', top: '20px', left: '20px', width: '40px', height: '40px' }}
+      />
+
       <h2>Instalação Maçônica</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

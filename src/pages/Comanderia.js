@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 //import { fetchWithToken } from '../fetchUtils'; // Certifique-se de que a função fetchWithToken está importada
 import '../styles/common-form.css'; 
+import voltar from '../images/voltar.png';
+import { useNavigate } from 'react-router-dom';
 
 const Comanderia = () => {
   const [memberId, setMemberId] = useState('');
@@ -8,6 +10,7 @@ const Comanderia = () => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleDegreeChange = (index, key, value) => {
     const newDegrees = [...comanderiaDegrees];
@@ -95,6 +98,15 @@ const Comanderia = () => {
 
   return (
     <div className="common-form">
+
+       {/* Ícone de voltar */}
+     <img 
+        src={voltar} 
+        alt="Voltar" 
+        onClick={() => navigate('/inicial')} // Redireciona para a página inicial
+        style={{ cursor: 'pointer', position: 'absolute', top: '20px', left: '20px', width: '40px', height: '40px' }}
+      />
+
       <h2>Comanderia de Cavaleiros Templários</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

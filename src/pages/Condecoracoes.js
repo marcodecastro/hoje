@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import voltar from '../images/voltar.png';
+
 
 const Condecoracoes = () => {
   const [memberId, setMemberId] = useState('');
@@ -6,6 +9,7 @@ const Condecoracoes = () => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleCondecoracaoChange = (index, key, value) => {
     const newCondecoracoes = [...condecoracoes];
@@ -88,7 +92,16 @@ const Condecoracoes = () => {
   }, [successMessage]);
 
   return (
-    <div className="form">
+    <div className="common-form">
+
+       {/* Ícone de voltar */}
+     <img 
+        src={voltar} 
+        alt="Voltar" 
+        onClick={() => navigate('/inicial')} // Redireciona para a página inicial
+        style={{ cursor: 'pointer', position: 'absolute', top: '20px', left: '20px', width: '40px', height: '40px' }}
+      />
+
       <h2>Condecorações Maçônicas</h2>
       <form onSubmit={handleSubmit}>
         <div>

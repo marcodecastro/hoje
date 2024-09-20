@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/common-form.css';
 //import { fetchWithToken } from '../fetchUtils'; 
+import voltar from '../images/voltar.png';
+import { useNavigate } from 'react-router-dom';
 
 const Filosoficos = ({ filosoficosId }) => {
   const [memberId, setMemberId] = useState('');
@@ -8,6 +10,8 @@ const Filosoficos = ({ filosoficosId }) => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleDegreeChange = (index, key, value) => {
     const newDegrees = [...philosophicalDegrees];
@@ -89,6 +93,15 @@ const Filosoficos = ({ filosoficosId }) => {
 
   return (
     <div className="common-form">
+
+      {/* Ícone de voltar */}
+     <img 
+        src={voltar} 
+        alt="Voltar" 
+        onClick={() => navigate('/inicial')} // Redireciona para a página inicial
+        style={{ cursor: 'pointer', position: 'absolute', top: '20px', left: '20px', width: '40px', height: '40px' }}
+      />
+
       <h2>{filosoficosId ? 'Atualizar Graus Filosóficos' : 'Cadastrar Graus Filosóficos'}</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

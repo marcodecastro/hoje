@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, CircularProgress, Card, CardContent, List } from '@mui/material';
 //import withAdminProtection from '../withAdminProtection';
 import '../styles/Comemoracoes.css';
+import voltar from '../images/voltar.png';
+import { useNavigate } from 'react-router-dom';
+
 
 const Comemoracoes = () => {
     const [comemoracoesHoje, setComemoracoesHoje] = useState([]);
@@ -13,11 +16,13 @@ const Comemoracoes = () => {
     const [comemoracoesBrasil, setComemoracoesBrasil] = useState([]);
     const [loadingBrasil, setLoadingBrasil] = useState(true);
     const [errorBrasil, setErrorBrasil] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchComemoracoesHoje = async () => {
             try {
                 const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes/comemoracoes');
+                //const response = await fetch('http://localhost:5000/api/comemoracoes/comemoracoes');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -34,6 +39,7 @@ const Comemoracoes = () => {
         const fetchComemoracoesSemana = async () => {
             try {
                 const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-semana/comemoracoes-semana');
+                //const response = await fetch('http://localhost:5000/api/comemoracoes-semana/comemoracoes-semana');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -51,6 +57,7 @@ const Comemoracoes = () => {
         const fetchComemoracoesBrasil = async () => { 
             try {
                 const response = await fetch('https://server-nv02.onrender.com/api/comemoracoes-brasil/comemoracoes-brasil');
+                //const response = await fetch('http://localhost:5000/api/comemoracoes-brasil/comemoracoes-brasil');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -88,6 +95,14 @@ const Comemoracoes = () => {
 
     return (
         <Container>
+
+             {/* Ícone de voltar */}
+     <img 
+        src={voltar} 
+        alt="Voltar" 
+        onClick={() => navigate('/inicial')} // Redireciona para a página inicial
+        style={{ cursor: 'pointer', position: 'absolute', top: '20px', left: '20px', width: '40px', height: '40px' }}
+      />
             
             <Typography variant="h4" gutterBottom>Comemorações de Hoje</Typography>
             <List>
