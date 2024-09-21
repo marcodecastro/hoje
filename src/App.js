@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { UserProvider } from './UserContext';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home'; // Supondo que você tenha uma página de Dashboard
@@ -22,6 +23,7 @@ import Apostolado from './pages/Apostolado';
 
 const App = () => {
   return (
+  <UserProvider>
     <Router>
       <Routes>
         <Route path="/register" element={<Register />} />
@@ -46,6 +48,7 @@ const App = () => {
         <Route path="/reassuncao" element={<Reassuncao/>} />
       </Routes>
     </Router>
+  </UserProvider>
   );
 };
 
